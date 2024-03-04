@@ -25,7 +25,8 @@ public class Main {
 
         Vehiculo carrito2 = new Vehiculo("FGH 123",TipoVehiculo.MOTO);
 
-
+        Vehiculo motico = new Vehiculo();
+        motico.setPlaca("ACF 543");
         //crear(instanciar un cliente)
       
      
@@ -54,9 +55,9 @@ public class Main {
         LocalDateTime fechaHoraFin = LocalDateTime.of(2024, Month.DECEMBER, 5, 2, 4, 23);
 
         //hacer registros(pagos) E/S de vehiculos
-        Pago pago1 = new Pago(fechaHoraInicio,fechaHoraFin, 7000.00, cliente1.misVehiculos.get(0), cupito1, empleado1);
+        Pago pago1 = new Pago(fechaHoraInicio,fechaHoraFin, 7000.00, cliente1.getMisVehiculos().get(0), cupito1, empleado1);
 
-        Pago pago2 = new Pago(fechaHoraInicio, fechaHoraFin, 6500.00, cliente1.misVehiculos.get(1), cupito2, empleado2);
+        Pago pago2 = new Pago(fechaHoraInicio, fechaHoraFin, 6500.00, cliente1.getMisVehiculos().get(1), cupito2, empleado2);
 
 
         //añadir pagos a una lista de pagos
@@ -73,13 +74,13 @@ public class Main {
             //  -Fecha y hora inicio
             //  -Fecha y hora fin
             //  -cupo(nombre)
-            System.out.println("Pago:|Placa:"+ p.vehiculo.placa + "|");
-            System.out.println("|Valor:"+ p.valor + "|");
-            System.out.println("|Fecha de inicio:" + p.fechaHoraInicio.toString() +"|");
-            System.out.println("|Fecha de Fin:" + p.fechaHoraFin.toString() +"|");
-            System.out.println("|Cupo:" + p.cupo.nombre + "|");
-            System.out.println("|Empleado:"+ p.empleado.codigo + "|");
-            System.out.println("------------------------------------");
+            System.out.println("Pago:|Placa:"+ p.getVehiculo().getPlaca() + "|" +
+            "|Valor:"+ p.getValor() + "|" +
+            "|Fecha de inicio:" + p.getFechaHoraInicio().toString() +"|" +
+            "|Fecha de Fin:" + p.getFechaHoraFin().toString() +"|" +
+            "|Cupo:" + p.getCupo().getNombre() + "|" +
+            "|Empleado:"+ p.getEmpleado().getCodigo() + "|");
+            
         }
     }
 }
